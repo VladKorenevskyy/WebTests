@@ -3,9 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -13,7 +11,7 @@ public class WebTest {
     WebDriver driver;
     String url = "http://www.99-bottles-of-beer.net/";
 
-    @BeforeTest
+    @BeforeMethod
     public void setDriver() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\vkorenevskyy\\IdeaProjects\\chromedriver.exe");
         driver = new ChromeDriver();
@@ -21,7 +19,7 @@ public class WebTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @AfterTest
+    @AfterMethod
     public void quitDriver() {
         driver.close();
         driver.quit();
